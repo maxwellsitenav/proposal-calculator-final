@@ -14,7 +14,6 @@ function calculatePrice(users, tier, years, manualDiscount) {
   if (manualDiscount) {
     discountPercent = manualDiscount;
   } else {
-    // Bulk discount
     if (users >= 50) {
       userDisc = 20;
     } else if (users >= 25) {
@@ -22,12 +21,9 @@ function calculatePrice(users, tier, years, manualDiscount) {
     } else if (users >= 10) {
       userDisc = 10;
     }
-
-    // Multi-year discount
     if (years === 3 || years === 5) {
       termDisc = 10;
     }
-
     discountPercent = userDisc + termDisc;
   }
 
@@ -35,57 +31,66 @@ function calculatePrice(users, tier, years, manualDiscount) {
   const finalPrice = basePrice - discountValue;
   const perUserPerYear = finalPrice / (users * years);
 
-  return {
-    basePrice,
-    userDisc,
-    termDisc,
-    discountPercent,
-    discountValue,
-    finalPrice,
-    perUserPerYear
-  };
+  return { basePrice, userDisc, termDisc, discountPercent, discountValue, finalPrice, perUserPerYear };
 }
 
-document.getElementById("calcBtn").addEventListener("click", () => {
+function getSelectedValues(selectEl) {
+  return Array.from(selectEl.selectedOptions).map(opt => parseInt(opt.value) || opt.value);
+}
+
+function renderTable() {
   const users = parseInt(document.getElementById("numUsers").value);
-  const years = parseInt(document.getElementById("termYears").value);
   const manualDiscount = parseFloat(document.getElementById("manualDiscount").value) || null;
   const showDetails = document.getElementById("detailsToggle").checked;
+
+  const selectedTiers = getSelectedValues(document.getElementById("productTier"));
+  const selectedYears = getSelectedValues(document.getElementById("termYears"));
 
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "";
 
-  // Create table
+  if (!users || selectedTiers.length === 0 || selectedYears.length === 0) {
+    resultsDiv.innerHTML = "<p>Please enter users, select at least one tier and one term.</p>";
+    return;
+  }
+
   let table = `<table>
     <tr>
       <th>Total Users</th>
-      <th>Product Tier</th>
-      <th>1 Year Term</th>
-      <th>3 Year Term</th>
-      <th>5 Year Term</th>
-    </tr>
-    <tr>
-      <td rowspan="3">${users}</td>
-  `;
+      <th>Product Tier</th>`;
 
-  ["Basic", "Dispatch", "Route Builder"].forEach((tier) => {
-    table += `<tr><td>${tier}</td>`;
-    [1, 3, 5].forEach((term) => {
+  selectedYears.forEach(term => {
+    table += `<th>${term} Year${term > 1 ? "s" : ""}</th>`;
+  });
+  table += `</tr>`;
+
+  selectedTiers.forEach(tier => {
+    table += `<tr><td>${users}</td><td>${tier}</td>`;
+    selectedYears.forEach(term => {
       const result = calculatePrice(users, tier, term, manualDiscount);
 
       if (showDetails) {
         table += `<td>
           <div><strong>Full Price:</strong> $${(prices[tier] * users * term).toFixed(2)}</div>
-          <div>User Disc: ${result.userDisc}% ($${((result.userDisc/100) * prices[tier] * users * term).toFixed(2)})</div>
-          <div>Term Disc: ${result.termDisc}% ($${((result.termDisc/100) * prices[tier] * users * term).toFixed(2)})</div>
+          ${manualDiscount ? 
+            `<div class="badge badge-manual">Manual Discount ${manualDiscount}%</div>` : 
+            `
+            ${result.userDisc > 0 ? `<div class="badge badge-bulk">Bulk Discount ${result.userDisc}%</div>` : ""}
+            ${result.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${result.termDisc}%</div>` : ""}
+            `}
           <div>Total Disc: ${result.discountPercent}% ($${result.discountValue.toFixed(2)})</div>
           <div>Price/user/year: $${result.perUserPerYear.toFixed(2)}</div>
-          <div><strong>Final Price:</strong> $${result.finalPrice.toFixed(2)}</div>
+          <div class="final-price">$${result.finalPrice.toFixed(2)}</div>
         </td>`;
       } else {
         table += `<td>
-          <div><strong>Final Price:</strong> $${result.finalPrice.toFixed(2)}</div>
-          <div>Discount: ${result.discountPercent}%</div>
+          <div class="final-price">$${result.finalPrice.toFixed(2)}</div>
+          ${manualDiscount ? 
+            `<div class="badge badge-manual">Manual Discount ${manualDiscount}%</div>` : 
+            `
+            ${result.userDisc > 0 ? `<div class="badge badge-bulk">Bulk Discount ${result.userDisc}%</div>` : ""}
+            ${result.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${result.termDisc}%</div>` : ""}
+            `}
         </td>`;
       }
     });
@@ -94,4 +99,24 @@ document.getElementById("calcBtn").addEventListener("click", () => {
 
   table += `</table>`;
   resultsDiv.innerHTML = table;
+
+  document.getElementById("copyImageBtn").style.display = "inline-block";
+}
+
+document.getElementById("calcBtn").addEventListener("click", renderTable);
+document.getElementById("detailsToggle").addEventListener("change", renderTable);
+
+document.getElementById("copyImageBtn").addEventListener("click", () => {
+  const resultsDiv = document.getElementById("results");
+  html2canvas(resultsDiv).then(canvas => {
+    canvas.toBlob(blob => {
+      const item = new ClipboardItem({ "image/png": blob });
+      navigator.clipboard.write([item]).then(() => {
+        alert("Table copied as image! You can now paste it.");
+      }).catch(err => {
+        console.error("Clipboard copy failed:", err);
+        alert("Copy failed. Try using Chrome or Edge.");
+      });
+    });
+  });
 });
