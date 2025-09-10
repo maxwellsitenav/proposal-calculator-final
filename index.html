@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposal Price Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Proposal Price Calculator</h1>
+
+  <div class="form-container">
+    <label>Total Users: <input type="number" id="numUsers" value="25"></label>
+    <label>Product Tier: 
+      <select id="productTier">
+        <option value="Basic">Basic</option>
+        <option value="Dispatch">Dispatch</option>
+        <option value="Route Builder">Route Builder</option>
+      </select>
+    </label>
+    <label>Years: 
+      <select id="termYears">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+      </select>
+    </label>
+    <label>Manual Discount (%): <input type="number" id="manualDiscount" placeholder="Leave blank for auto"></label>
+    <button id="calcBtn">Calculate</button>
+    <label>
+      <input type="checkbox" id="detailsToggle"> Show Details
+    </label>
+  </div>
+
+  <div id="results"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
