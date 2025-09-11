@@ -272,3 +272,9 @@ table {
 .btn-secondary:hover {
   background: #5a6268;
 }
+
+#downloadBtn {
+  display: block;       /* make it a block element */
+  margin: 30px auto 0;  /* 30px space above, auto left/right centers it */
+}
+
