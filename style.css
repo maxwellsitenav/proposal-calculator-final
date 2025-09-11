@@ -1,30 +1,195 @@
+/* Page centering */
+* { box-sizing: border-box; }
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f9f9f9;
-  text-align: center;
+  margin: 0;
+  background: #f2f3f6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f1f1f;
 }
-
-.container {
+.page-wrap {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h1 {
-  margin-bottom: 20px;
+/* Input card */
+.input-card {
+  width: 1000px;
+  min-height: 364px;
+  background: #eef0f4;           /* light grey */
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
 }
 
-.form-container {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Inputs row */
+.inputs-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.inputs-row label {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.inputs-row input,
+.inputs-row select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd3dc;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+}
+.inputs-row select[multiple] {
+  height: 120px; /* visible options */
+}
+
+/* Calculate button */
+.btn-primary {
+  margin-top: 4px;
+  background: #1677ff;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover { background: #0f62d6; }
+
+/* Toggle row (below card) */
+.toggle-row {
+  width: 1000px;
+  margin-top: 16px;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.toggle-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #b9c0cf;
+  transition: .2s;
+  border-radius: 999px;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.switch input:checked + .slider { background: #1677ff; }
+.switch input:checked + .slider:before { transform: translateX(24px); }
+
+/* Results wrap */
+.results-wrap {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  max-width: 800px;
-  margin-bottom: 20px;
+  margin-top: 14px;
+}
+
+/* Table container and sizing */
+.table-wrap {
+  width: 100%;
+  max-width: 1220px;  /* as requested */
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+}
+
+/* Header bar */
+thead th {
+  background: #313a52; /* requested color */
+  color: #ffffff;
+  height: 40px;         /* requested height */
+  font-size: 18px;      /* “about same as headers” */
+  font-weight: 800;
+  text-align: center;
+  border: 1px solid #000; /* black lines */
+}
+
+/* Body cells */
+tbody td {
+  border: 1px solid #000; /* black grid lines */
+  padding: 12px;
+  text-align: center;     /* users + tier centered per spec */
+  font-size: 18px;        /* similar to header size per spec */
+  vertical-align: top;
+}
+
+/* Final price emphasis */
+.final-price {
+  display: block;
+  margin-top: 6px;
+  font-weight: 800;
+}
+
+/* Discount badges */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+.badge-bulk { background: #e74c3c; color: #fff; }
+.badge-term { background: #3498db; color: #fff; }
+.badge-manual { background: #27ae60; color: #fff; }
+
+/* Helper text */
+.info {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
 }
