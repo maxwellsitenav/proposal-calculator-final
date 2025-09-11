@@ -137,8 +137,8 @@ table {
   max-width: 1220px;
 }
 thead th {
-  background: #2c3448;
-  color: #fff;
+  background: #e0e0e0;   /* lighter than navy */
+  color: #000;
   font-size: 14px;
   font-weight: bold;
   height: 40px;
