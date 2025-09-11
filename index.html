@@ -19,23 +19,23 @@
         </label>
 
         <!-- Product Tier -->
-<div class="field">
-  <span>Product Tier</span>
-  <div class="checkbox-group" id="tierOptions">
-    <label>Basic <input type="checkbox" value="Basic" checked /></label>
-    <label>Dispatch <input type="checkbox" value="Dispatch" /></label>
-    <label>Route Builder <input type="checkbox" value="Route Builder" /></label>
-  </div>
-</div>
+        <div class="field">
+          <span>Product Tier</span>
+          <div class="checkbox-group" id="tierOptions">
+            <label>Basic <input type="checkbox" value="Basic" checked /></label>
+            <label>Dispatch <input type="checkbox" value="Dispatch" /></label>
+            <label>Route Builder <input type="checkbox" value="Route Builder" /></label>
+          </div>
+        </div>
 
-<!-- Years -->
-<div class="field">
-  <span>Term</span>
-  <div class="checkbox-group" id="yearOptions">
-    <label>1 Year Term <input type="checkbox" value="1" checked /></label>
-    <label>3 Year Term <input type="checkbox" value="3" /></label>
-  </div>
-</div>
+        <!-- Years -->
+        <div class="field">
+          <span>Term</span>
+          <div class="checkbox-group" id="yearOptions">
+            <label>1 Year Term <input type="checkbox" value="1" checked /></label>
+            <label>3 Year Term <input type="checkbox" value="3" /></label>
+          </div>
+        </div>
 
         <!-- Manual Discount -->
         <label>
@@ -48,26 +48,28 @@
       <button id="calcBtn" class="btn-primary">Calculate</button>
 
       <!-- TOGGLE INSIDE CONTAINER -->
-<div class="toggle-row">
-  <span class="toggle-label">More Details</span>
-  <label class="switch">
-    <input type="checkbox" id="detailsToggle" />
-    <span class="slider"></span>
-  </label>
-</div>
+      <div class="toggle-row">
+        <span class="toggle-label">More Details</span>
+        <label class="switch">
+          <input type="checkbox" id="detailsToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
 
-<!-- Download Button (INSIDE card) -->
-<button id="downloadBtn" class="btn-secondary">Download Table as PNG</button>
-</div> <!-- this closes input-card -->
+      <!-- Download Buttons INSIDE card -->
+      <button id="downloadBtn" class="btn-secondary">Download Table as PNG</button>
+      <button id="downloadPdfBtn" class="btn-secondary">Download Table as PDF</button>
+    </div> <!-- closes input-card -->
 
     <!-- RESULTS -->
     <div id="results" class="results-wrap"></div>
   </div>
 
-  <!-- html2canvas library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- html2canvas and jsPDF libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<!-- Your script -->
-<script src="script.js"></script>
+  <!-- Your script -->
+  <script src="script.js"></script>
 </body>
 </html>
