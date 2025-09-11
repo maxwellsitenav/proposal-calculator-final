@@ -212,3 +212,8 @@ table {
   max-width: 1220px;  /* controls max table width */
 }
 
+/* Remove left border from the first body cell so it aligns with header */
+tbody td:first-child {
+  border-left: none;
+}
+
