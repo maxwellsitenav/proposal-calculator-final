@@ -27,8 +27,9 @@ function calculatePrice(users, tier, years, manualDiscount) {
 
   const discountValue = (discountPercent / 100) * basePrice;
   const finalPrice = basePrice - discountValue;
+  const perUserPerYear = finalPrice / (users * years);
 
-  return { finalPrice, userDisc, termDisc, discountPercent };
+  return { basePrice, userDisc, termDisc, discountPercent, discountValue, finalPrice, perUserPerYear };
 }
 
 function getSelectedValues(selectEl) {
@@ -70,17 +71,35 @@ function renderTable() {
     html += `<td class="tier">${tier}</td>`;
     years.forEach(term => {
       const r = calculatePrice(users, tier, term, manualDiscount);
-      html += `<td>
-        <div><strong>Final Price:</strong> $${formatNumber(r.finalPrice)}</div>
-        ${
-          manualDiscount !== null
-            ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
-            : `
-              ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
-              ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
-            `
-        }
-      </td>`;
+
+      if (showDetails) {
+        html += `<td>
+          <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
+          ${
+            manualDiscount !== null
+              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+              : `
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}% ($${formatNumber((r.userDisc/100) * r.basePrice)})</div>` : ""}
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}% ($${formatNumber((r.termDisc/100) * r.basePrice)})</div>` : ""}
+              `
+          }
+          <div>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</div>
+          <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
+          <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
+        </td>`;
+      } else {
+        html += `<td>
+          <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
+          ${
+            manualDiscount !== null
+              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+              : `
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+              `
+          }
+        </td>`;
+      }
     });
 
     html += `</tr>`;
