@@ -255,3 +255,20 @@ table {
 .details-list li {
   margin-bottom: 4px;
 }
+
+/* Secondary button (Download) */
+.btn-secondary {
+  margin-top: 20px;
+  background: #6c757d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover {
+  background: #5a6268;
+}
