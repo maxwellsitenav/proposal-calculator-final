@@ -42,12 +42,15 @@ body {
   gap: 40px;
   align-items: start;
 }
-.inputs-row label {
+/* NEW: only top-level fields in the grid */
+.inputs-row > label,
+.inputs-row > .field {
   display: flex;
   flex-direction: column;
   font-weight: bold;
   font-size: 16px;
 }
+
 .inputs-row input,
 .inputs-row select {
   margin-top: 8px;
@@ -221,17 +224,19 @@ table {
   margin-top: 8px;
 }
 
+/* Each option: text left, checkbox right */
 .checkbox-group label {
   display: flex;
-  justify-content: space-between; /* text left, box right */
+  flex-direction: row;           /* <-- important override */
+  justify-content: space-between;
   align-items: center;
   font-weight: normal;
   cursor: pointer;
 }
 
+/* Smaller checkbox */
 .checkbox-group input[type="checkbox"] {
   width: 14px;
   height: 14px;
   margin-left: 8px;
 }
-
