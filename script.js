@@ -73,15 +73,14 @@ function renderTable() {
       const r = calculatePrice(users, tier, term, manualDiscount);
 
       if (showDetails) {
-        html += `<td>
+        html += `<td class="details-cell">
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
           ${
             manualDiscount !== null
               ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
               : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">Bulk User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
                 ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
-
               `
           }
           <div>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</div>
@@ -89,11 +88,17 @@ function renderTable() {
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
-       html += `<td class="term-col">
-  <div><strong>Final Price:</strong> $${formatNumber(r.finalPrice)}</div>
-  ...
-</td>`;
-
+        html += `<td>
+          <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
+          ${
+            manualDiscount !== null
+              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+              : `
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+              `
+          }
+        </td>`;
       }
     });
 
