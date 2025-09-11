@@ -212,3 +212,14 @@ table {
   max-width: 1220px;  /* controls max table width */
 }
 
+/* Checkbox group styling */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.checkbox-group label {
+  font-weight: normal; /* main label is bold, options lighter */
+}
