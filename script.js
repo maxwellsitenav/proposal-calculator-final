@@ -148,25 +148,3 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   });
 });
 
-// Download table as PDF
-document.getElementById("downloadPdfBtn").addEventListener("click", () => {
-  const results = document.getElementById("results");
-  const table = results.querySelector("table");
-  if (!table) {
-    alert("Please generate the table first by clicking Calculate.");
-    return;
-  }
-
-  html2canvas(table, { scale: 3 }).then(canvas => {
-    const imgData = canvas.toDataURL("image/png");
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF("l", "pt", "a4"); // landscape, points, A4 size
-
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const imgWidth = pageWidth - 40; // margins
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-    pdf.addImage(imgData, "PNG", 20, 20, imgWidth, imgHeight);
-    pdf.save("proposal-table.pdf");
-  });
-});
