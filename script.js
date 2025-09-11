@@ -75,17 +75,25 @@ function renderTable() {
     years.forEach(term => {
       const r = calculatePrice(users, tier, term, manualDiscount);
 
-      if (showDetails) {
-        html += `<td class="details-cell">
-          <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
-          ${
-            manualDiscount !== null
-              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
-              : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">Bulk User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
-                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
-              `
-          }
+  if (showDetails) {
+  html += `<td class="details-cell">
+    <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
+    ${
+      manualDiscount !== null
+        ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+        : `
+          ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+          ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+        `
+    }
+    <ul class="details-list">
+      <li>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>
+      <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
+    </ul>
+    <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
+  </td>`;
+}
+
           <div>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</div>
           <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
