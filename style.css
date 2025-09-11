@@ -136,34 +136,30 @@ table {
   width: 100%;
   max-width: 1220px;
 }
+/* Table Header */
 thead th {
-  background: #e0e0e0;   /* lighter than navy */
-  color: #000;
-  font-size: 14px;
+  background: #2c3448;   /* dark navy */
+  color: #fff;
+  font-size: 18px;       /* unified size */
   font-weight: bold;
   height: 40px;
-  border: 1px solid #ccc;
   padding-left: 12px;
   text-align: left;
+  border: none;          /* no lines on header */
 }
 thead th.users {
   text-align: center;
 }
-tbody td {
-  border: 1px solid #ccc;
-  height: 50px;
-  font-size: 14px;
-  padding-left: 12px;
-  text-align: left;
-}
+
+/* Table Body */
 tbody td.users {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 18px;       /* unified size */
   text-align: center;
 }
 tbody td.tier {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;       /* unified size */
   text-align: left;
 }
 
