@@ -156,13 +156,12 @@ tbody td.users {
   font-weight: bold;
   font-size: 18px;       /* unified size */
   text-align: center;
-  border: 1px solid #000;   /* black grid lines */
 }
+
 tbody td.tier {
   font-weight: bold;
   font-size: 18px;       /* unified size */
   text-align: left;
-  border: 1px solid #000;   /* black grid lines */
 }
 
 /* Final Price */
