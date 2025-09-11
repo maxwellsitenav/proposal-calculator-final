@@ -12,37 +12,39 @@
       <h1 class="title">Proposal Price Calculator</h1>
 
       <div class="inputs-row">
+        <!-- Total Users -->
         <label>
           <span>Total Users</span>
           <input type="number" id="numUsers" value="25" min="1" />
         </label>
 
-       <!-- Product Tier -->
-<label>
-  <span>Product Tier</span>
-  <div class="checkbox-group" id="tierOptions">
-    <label><input type="checkbox" value="Basic" checked /> Basic</label>
-    <label><input type="checkbox" value="Dispatch" /> Dispatch</label>
-    <label><input type="checkbox" value="Route Builder" /> Route Builder</label>
-  </div>
-</label>
+        <!-- Product Tier -->
+        <label>
+          <span>Product Tier</span>
+          <div class="checkbox-group" id="tierOptions">
+            <label>Basic <input type="checkbox" value="Basic" checked /></label>
+            <label>Dispatch <input type="checkbox" value="Dispatch" /></label>
+            <label>Route Builder <input type="checkbox" value="Route Builder" /></label>
+          </div>
+        </label>
 
-<!-- Years -->
-<label>
-  <span>Years</span>
-  <div class="checkbox-group" id="yearOptions">
-    <label><input type="checkbox" value="1" checked /> 1 Year Term</label>
-    <label><input type="checkbox" value="3" /> 3 Year Term</label>
-  </div>
-</label>
+        <!-- Years -->
+        <label>
+          <span>Years</span>
+          <div class="checkbox-group" id="yearOptions">
+            <label>1 Year Term <input type="checkbox" value="1" checked /></label>
+            <label>3 Year Term <input type="checkbox" value="3" /></label>
+          </div>
+        </label>
 
-
+        <!-- Manual Discount -->
         <label>
           <span>Manual Discount (%)</span>
           <input type="number" id="manualDiscount" placeholder="Leave blank for auto" />
         </label>
       </div>
 
+      <!-- Calculate Button -->
       <button id="calcBtn" class="btn-primary">Calculate</button>
 
       <!-- TOGGLE INSIDE CONTAINER -->
