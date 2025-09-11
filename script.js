@@ -137,7 +137,7 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
     return;
   }
 
-  html2canvas(table, { scale: 2 }).then(canvas => {
+  html2canvas(table, { scale: 3 }).then(canvas => {
     const link = document.createElement("a");
     link.download = "proposal-table.png";
     link.href = canvas.toDataURL("image/png");
