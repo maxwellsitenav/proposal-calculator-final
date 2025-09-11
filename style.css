@@ -197,4 +197,18 @@ tbody td.tier {
   padding-bottom: 10px;
 }
 
+/* Results wrapper keeps table centered */
+.results-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px; /* optional extra spacing above table */
+}
+
+/* Table container ensures consistent sizing */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1220px;  /* controls max table width */
+}
 
