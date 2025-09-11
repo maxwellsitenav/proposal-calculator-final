@@ -125,42 +125,47 @@ body {
 input:checked + .slider { background-color: #007bff; }
 input:checked + .slider:before { transform: translateX(24px); }
 
-/* Results Table */
-.results-wrap {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+/* Table */
 table {
   border-collapse: collapse;
   width: 100%;
   max-width: 1220px;
 }
-/* Table Header */
+
+/* Header */
 thead th {
   background: #2c3448;   /* dark navy */
   color: #fff;
-  font-size: 18px;       /* unified size */
+  font-size: 18px;
   font-weight: bold;
   height: 40px;
   padding-left: 12px;
   text-align: left;
-  border: none;          /* no lines on header */
+  border-top: none;       /* no top border */
+  border-left: none;      /* no left border */
+  border-right: none;     /* no right border */
+  border-bottom: 2px solid #000; /* solid black line under header */
 }
 thead th.users {
   text-align: center;
 }
 
-/* Table Body */
+/* Body cells */
+tbody td {
+  border: 1px solid #000;   /* black grid lines */
+  height: 60px;
+  font-size: 14px;
+  padding-left: 12px;
+  text-align: left;
+}
 tbody td.users {
   font-weight: bold;
-  font-size: 18px;       /* unified size */
+  font-size: 18px;
   text-align: center;
 }
-
 tbody td.tier {
   font-weight: bold;
-  font-size: 18px;       /* unified size */
+  font-size: 18px;
   text-align: left;
 }
 
