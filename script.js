@@ -79,8 +79,9 @@ function renderTable() {
             manualDiscount !== null
               ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
               : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}% ($${formatNumber((r.userDisc/100) * r.basePrice)})</div>` : ""}
-                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}% ($${formatNumber((r.termDisc/100) * r.basePrice)})</div>` : ""}
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+
               `
           }
           <div>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</div>
