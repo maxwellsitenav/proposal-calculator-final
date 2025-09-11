@@ -132,7 +132,7 @@ table {
   max-width: 1220px;
 }
 
-/* Header */
+/* Table Header */
 thead th {
   background: #2c3448;   /* dark navy */
   color: #fff;
@@ -141,10 +141,10 @@ thead th {
   height: 40px;
   padding-left: 12px;
   text-align: left;
-  border-top: none;       /* no top border */
-  border-left: none;      /* no left border */
-  border-right: none;     /* no right border */
-  border-bottom: 2px solid #000; /* solid black line under header */
+  border-top: none;
+  border-right: none;
+  border-bottom: 2px solid #000; /* strong line below header */
+  border-left: 1px solid #000;   /* NEW: ensures header aligns with body border */
 }
 thead th.users {
   text-align: center;
@@ -210,10 +210,5 @@ table {
   border-collapse: collapse;
   width: 100%;
   max-width: 1220px;  /* controls max table width */
-}
-
-/* Remove left border from the first body cell so it aligns with header */
-tbody td:first-child {
-  border-left: none;
 }
 
