@@ -17,22 +17,25 @@
           <input type="number" id="numUsers" value="25" min="1" />
         </label>
 
-        <label>
-          <span>Product Tier</span>
-          <select id="productTier" multiple size="3">
-            <option value="Basic">Basic</option>
-            <option value="Dispatch">Dispatch</option>
-            <option value="Route Builder">Route Builder</option>
-          </select>
-        </label>
+       <!-- Product Tier -->
+<label>
+  <span>Product Tier</span>
+  <div class="checkbox-group" id="tierOptions">
+    <label><input type="checkbox" value="Basic" checked /> Basic</label>
+    <label><input type="checkbox" value="Dispatch" /> Dispatch</label>
+    <label><input type="checkbox" value="Route Builder" /> Route Builder</label>
+  </div>
+</label>
 
-        <label>
-          <span>Years</span>
-          <select id="termYears" multiple size="2">
-            <option value="1">1</option>
-            <option value="3">3</option>
-          </select>
-        </label>
+<!-- Years -->
+<label>
+  <span>Years</span>
+  <div class="checkbox-group" id="yearOptions">
+    <label><input type="checkbox" value="1" checked /> 1 Year Term</label>
+    <label><input type="checkbox" value="3" /> 3 Year Term</label>
+  </div>
+</label>
+
 
         <label>
           <span>Manual Discount (%)</span>
