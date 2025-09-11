@@ -128,5 +128,22 @@ function renderTable() {
   results.innerHTML = html;
 }
 
+// Download table as PNG
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const results = document.getElementById("results");
+  if (!results.querySelector("table")) {
+    alert("Please generate the table first by clicking Calculate.");
+    return;
+  }
+
+  html2canvas(results).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "proposal-table.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+});
+
+
 document.getElementById("calcBtn").addEventListener("click", renderTable);
 document.getElementById("detailsToggle").addEventListener("change", renderTable);
