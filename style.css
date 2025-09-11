@@ -223,13 +223,12 @@ table {
 
 .checkbox-group label {
   display: flex;
-  justify-content: space-between; /* text left, checkbox right */
+  justify-content: space-between; /* text left, box right */
   align-items: center;
-  font-weight: normal; /* main label is bold, options lighter */
+  font-weight: normal;
   cursor: pointer;
 }
 
-/* Smaller checkbox */
 .checkbox-group input[type="checkbox"] {
   width: 14px;
   height: 14px;
