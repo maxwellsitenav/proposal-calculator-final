@@ -240,3 +240,8 @@ table {
   height: 14px;
   margin-left: 8px;
 }
+
+/* Wider Manual Discount input */
+#manualDiscount {
+  width: 160px;   /* wider than the default 80px */
+}
