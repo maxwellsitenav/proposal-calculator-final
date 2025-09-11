@@ -245,3 +245,13 @@ table {
 #manualDiscount {
   width: 160px;   /* wider than the default 80px */
 }
+
+/* Bulleted list for more details */
+.details-list {
+  margin: 8px 0;
+  padding-left: 20px; /* indent bullets */
+  font-size: 14px;
+}
+.details-list li {
+  margin-bottom: 4px;
+}
