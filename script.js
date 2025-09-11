@@ -128,15 +128,16 @@ function renderTable() {
   results.innerHTML = html;
 }
 
-// Download table as PNG
+// Download table as PNG (higher resolution)
 document.getElementById("downloadBtn").addEventListener("click", () => {
   const results = document.getElementById("results");
-  if (!results.querySelector("table")) {
+  const table = results.querySelector("table");
+  if (!table) {
     alert("Please generate the table first by clicking Calculate.");
     return;
   }
 
-  html2canvas(results).then(canvas => {
+  html2canvas(table, { scale: 2 }).then(canvas => {
     const link = document.createElement("a");
     link.download = "proposal-table.png";
     link.href = canvas.toDataURL("image/png");
