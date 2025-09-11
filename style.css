@@ -168,6 +168,7 @@ tbody td.tier {
   display: block;
   margin-top: 6px;
   font-weight: bold;
+  font-size: 20px;   /* larger to stand out */
   color: #000;
 }
 
