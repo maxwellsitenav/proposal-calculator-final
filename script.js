@@ -1,4 +1,3 @@
-/* ---- Pricing rules ---- */
 const prices = {
   "Basic": 199,
   "Dispatch": 399,
@@ -17,17 +16,12 @@ function calculatePrice(users, tier, years, manualDiscount) {
   let termDisc = 0;
 
   if (manualDiscount || manualDiscount === 0) {
-    // Manual discount replaces all other discounts
     discountPercent = manualDiscount;
   } else {
-    // Bulk/User discount
     if (users >= 50) userDisc = 20;
     else if (users >= 25) userDisc = 15;
     else if (users >= 10) userDisc = 10;
-
-    // Multi-year discount
     if (years === 3) termDisc = 10;
-
     discountPercent = userDisc + termDisc;
   }
 
@@ -37,14 +31,12 @@ function calculatePrice(users, tier, years, manualDiscount) {
   return { finalPrice, userDisc, termDisc, discountPercent };
 }
 
-/* ---- Utilities ---- */
 function getSelectedValues(selectEl) {
   return Array.from(selectEl.selectedOptions).map(opt =>
     opt.value.match(/^\d+$/) ? parseInt(opt.value, 10) : opt.value
   );
 }
 
-/* ---- Render table ---- */
 function renderTable() {
   const users = parseInt(document.getElementById("numUsers").value, 10);
   const manualRaw = document.getElementById("manualDiscount").value.trim();
@@ -62,7 +54,6 @@ function renderTable() {
     return;
   }
 
-  // Table header
   let html = `<table><thead><tr>`;
   html += `<th class="users">Total Users</th><th>Product Tier</th>`;
   years.forEach(term => {
@@ -99,6 +90,5 @@ function renderTable() {
   results.innerHTML = html;
 }
 
-/* ---- Events ---- */
 document.getElementById("calcBtn").addEventListener("click", renderTable);
 document.getElementById("detailsToggle").addEventListener("change", renderTable);
