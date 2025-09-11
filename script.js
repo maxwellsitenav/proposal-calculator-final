@@ -14,14 +14,22 @@ function calculatePrice(users, tier, years, manualDiscount) {
   let discountPercent = 0;
   let userDisc = 0;
   let termDisc = 0;
+  let manualDisc = 0;
+
+  // Multi-year discount always applies for 3 years
+  if (years === 3) {
+    termDisc = 10;
+  }
 
   if (manualDiscount || manualDiscount === 0) {
-    discountPercent = manualDiscount;
+    // Manual replaces user discount, but can stack with 3-year term
+    manualDisc = manualDiscount;
+    discountPercent = termDisc + manualDisc;
   } else {
+    // Normal rule: user discount + (optional) 3-year term
     if (users >= 50) userDisc = 20;
     else if (users >= 25) userDisc = 15;
     else if (users >= 10) userDisc = 10;
-    if (years === 3) termDisc = 10;
     discountPercent = userDisc + termDisc;
   }
 
@@ -29,7 +37,7 @@ function calculatePrice(users, tier, years, manualDiscount) {
   const finalPrice = basePrice - discountValue;
   const perUserPerYear = finalPrice / (users * years);
 
-  return { basePrice, userDisc, termDisc, discountPercent, discountValue, finalPrice, perUserPerYear };
+  return { basePrice, userDisc, termDisc, manualDisc, discountPercent, discountValue, finalPrice, perUserPerYear };
 }
 
 function getCheckedValues(containerId) {
@@ -80,9 +88,12 @@ function renderTable() {
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
           ${
             manualDiscount !== null
-              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+              ? `
+                <div class="badge badge-manual">Discount ${r.manualDisc.toFixed(2)}%</div>
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+              `
               : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">Bulk User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
                 ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
               `
           }
@@ -97,9 +108,12 @@ function renderTable() {
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
           ${
             manualDiscount !== null
-              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
+              ? `
+                <div class="badge badge-manual">Discount ${r.manualDisc.toFixed(2)}%</div>
+                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
+              `
               : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">Bulk User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
+                ${r.userDisc > 0 ? `<div class="badge badge-user">User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
                 ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
               `
           }
