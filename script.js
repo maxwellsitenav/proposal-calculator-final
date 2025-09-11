@@ -32,10 +32,9 @@ function calculatePrice(users, tier, years, manualDiscount) {
   return { basePrice, userDisc, termDisc, discountPercent, discountValue, finalPrice, perUserPerYear };
 }
 
-function getSelectedValues(selectEl) {
-  return Array.from(selectEl.selectedOptions).map(opt =>
-    opt.value.match(/^\d+$/) ? parseInt(opt.value, 10) : opt.value
-  );
+function getCheckedValues(containerId) {
+  return Array.from(document.querySelectorAll(`#${containerId} input:checked`))
+    .map(input => input.value.match(/^\d+$/) ? parseInt(input.value, 10) : input.value);
 }
 
 function renderTable() {
@@ -44,8 +43,8 @@ function renderTable() {
   const manualDiscount = manualRaw === "" ? null : Math.max(0, Math.min(100, parseFloat(manualRaw)));
   const showDetails = document.getElementById("detailsToggle").checked;
 
-  const tiers = getSelectedValues(document.getElementById("productTier"));
-  const years = getSelectedValues(document.getElementById("termYears"));
+  const tiers = getCheckedValues("tierOptions");
+  const years = getCheckedValues("yearOptions");
 
   const results = document.getElementById("results");
   results.innerHTML = "";
