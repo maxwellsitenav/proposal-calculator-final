@@ -89,17 +89,11 @@ function renderTable() {
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
-        html += `<td>
-          <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
-          ${
-            manualDiscount !== null
-              ? `<div class="badge badge-manual">Manual Discount ${manualDiscount.toFixed(2)}%</div>`
-              : `
-                ${r.userDisc > 0 ? `<div class="badge badge-user">Bulk User Discount ${r.userDisc.toFixed(2)}%</div>` : ""}
-                ${r.termDisc > 0 ? `<div class="badge badge-term">Multi-Year Discount ${r.termDisc.toFixed(2)}%</div>` : ""}
-              `
-          }
-        </td>`;
+       html += `<td class="term-col">
+  <div><strong>Final Price:</strong> $${formatNumber(r.finalPrice)}</div>
+  ...
+</td>`;
+
       }
     });
 
