@@ -58,8 +58,12 @@ function renderTable() {
   let html = `<table><thead><tr>`;
   html += `<th class="users">Total Users</th><th>Product Tier</th>`;
   years.forEach(term => {
-    html += `<th>${term} Year${term > 1 ? "s" : ""}</th>`;
-  });
+  if (term === 1) {
+    html += `<th>1 Year Term</th>`;
+  } else if (term === 3) {
+    html += `<th>3 Year Term</th>`;
+  }
+});
   html += `</tr></thead><tbody>`;
 
   // Users cell spans all tiers
