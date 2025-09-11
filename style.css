@@ -188,9 +188,10 @@ tbody td.tier {
 .badge-term { background: #3399ff; color: #fff; }
 .badge-manual { background: #27ae60; color: #fff; }
 
-/* Extra padding for term columns */
-tbody td.term-col {
+/* Extra padding only for More Details cells */
+.details-cell {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 
