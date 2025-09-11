@@ -187,3 +187,10 @@ tbody td.tier {
 .badge-user { background: #d85a27; color: #fff; }
 .badge-term { background: #3399ff; color: #fff; }
 .badge-manual { background: #27ae60; color: #fff; }
+
+/* Extra padding for term columns */
+tbody td.term-col {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
