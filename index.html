@@ -18,16 +18,16 @@
         </label>
 
         <label>
-          <span>Product Tier (multi-select)</span>
+          <span>Product Tier</span>
           <select id="productTier" multiple size="3">
             <option value="Basic">Basic</option>
             <option value="Dispatch">Dispatch</option>
-            <option value="Route Builder">Route Builder</option>
+            <option value="Plus">Plus</option>
           </select>
         </label>
 
         <label>
-          <span>Term (years, multi-select)</span>
+          <span>Years</span>
           <select id="termYears" multiple size="3">
             <option value="1">1</option>
             <option value="3">3</option>
@@ -37,7 +37,7 @@
 
         <label>
           <span>Manual Discount (%)</span>
-          <input type="number" id="manualDiscount" placeholder="Leave blank for auto" min="0" max="100" />
+          <input type="number" id="manualDiscount" placeholder="Leave blank for auto" />
         </label>
       </div>
 
@@ -46,7 +46,7 @@
 
     <!-- TOGGLE -->
     <div class="toggle-row">
-      <span class="toggle-text">More Details</span>
+      <span class="toggle-label">More Details</span>
       <label class="switch">
         <input type="checkbox" id="detailsToggle" />
         <span class="slider"></span>
@@ -57,8 +57,6 @@
     <div id="results" class="results-wrap"></div>
   </div>
 
-  <!-- html2canvas available if you want to add Copy-as-Image later -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
