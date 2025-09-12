@@ -66,7 +66,7 @@ function renderTable() {
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
-              ${term === 1 ? "1 Year Term Discount" : "3 Year Term Discount"} ${discount.toFixed(2)}%
+              ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
             </div>` : ""}
           <ul class="details-list">
             <li>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>
@@ -79,7 +79,7 @@ function renderTable() {
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
-              ${term === 1 ? "1 Year Term Discount" : "3 Year Term Discount"} ${discount.toFixed(2)}%
+              ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
             </div>` : ""}
         </td>`;
       }
