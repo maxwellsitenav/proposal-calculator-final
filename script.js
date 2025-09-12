@@ -74,6 +74,7 @@ function renderTable() {
                 ? `<li>Total Savings: $${formatNumber(r.discountValue)}</li>` 
                 : ""}
             <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
+            <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
           </ul>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
