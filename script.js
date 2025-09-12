@@ -70,7 +70,7 @@ function renderTable() {
             </div>` : ""}
           <ul class="details-list">
               ${r.discountPercent > 0 
-                ? `<li>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>` 
+                ? `<li>Total Savings: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>` 
                 : ""}
             <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
           </ul>
