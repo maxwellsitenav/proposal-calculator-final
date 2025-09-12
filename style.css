@@ -38,11 +38,10 @@ body {
 /* Inputs */
 .inputs-row {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(5, auto); /* 5 columns to fit new fields */
   gap: 40px;
   align-items: start;
 }
-/* NEW: only top-level fields in the grid */
 .inputs-row > label,
 .inputs-row > .field {
   display: flex;
@@ -60,7 +59,7 @@ body {
   padding: 4px 8px;
 }
 .inputs-row input {
-  width: 80px;
+  width: 120px; /* wider by default for discount placeholders */
   height: 30px;
 }
 .inputs-row select {
@@ -190,9 +189,8 @@ tbody td.tier {
   font-weight: bold;
   margin-top: 4px;
 }
-.badge-user { background: #d85a27; color: #fff; }
-.badge-term { background: #3399ff; color: #fff; }
-.badge-manual { background: #27ae60; color: #fff; }
+.badge-user { background: #d85a27; color: #fff; }  /* orange for 1 Year */
+.badge-term { background: #3399ff; color: #fff; }  /* blue for 3 Year */
 
 /* Extra padding only for More Details cells */
 .details-cell {
@@ -205,14 +203,7 @@ tbody td.tier {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 20px; /* optional extra spacing above table */
-}
-
-/* Table container ensures consistent sizing */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 1220px;  /* controls max table width */
+  margin-top: 20px;
 }
 
 /* Checkbox group styling */
@@ -223,27 +214,18 @@ table {
   font-size: 14px;
   margin-top: 8px;
 }
-
-/* Each option: text left, checkbox right */
 .checkbox-group label {
   display: flex;
-  flex-direction: row;           /* <-- important override */
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-weight: normal;
   cursor: pointer;
 }
-
-/* Smaller checkbox */
 .checkbox-group input[type="checkbox"] {
   width: 14px;
   height: 14px;
   margin-left: 8px;
-}
-
-/* Wider Manual Discount input */
-#manualDiscount {
-  width: 160px;   /* wider than the default 80px */
 }
 
 /* Bulleted list for more details */
@@ -274,7 +256,6 @@ table {
 }
 
 #downloadBtn {
-  display: block;       /* make it a block element */
-  margin: 30px auto 0;  /* 30px space above, auto left/right centers it */
+  display: block;
+  margin: 30px auto 0;
 }
-
