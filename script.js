@@ -14,8 +14,9 @@ function calculatePrice(users, tier, years, discount) {
   const discountValue = (discountPercent / 100) * basePrice;
   const finalPrice = basePrice - discountValue;
   const perUserPerYear = finalPrice / (users * years);
+  const perUserPerMonth = finalPrice / (users * years * 12);
 
-  return { basePrice, discountPercent, discountValue, finalPrice, perUserPerYear };
+  return { basePrice, discountPercent, discountValue, finalPrice, perUserPerYear, perUserPerMonth };
 }
 
 function getCheckedValues(containerId) {
@@ -70,7 +71,7 @@ function renderTable() {
             </div>` : ""}
           <ul class="details-list">
               ${r.discountPercent > 0 
-                ? `<li>Total Savings: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>` 
+                ? `<li>Total Savings: $${formatNumber(r.discountValue)}</li>` 
                 : ""}
             <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
           </ul>
