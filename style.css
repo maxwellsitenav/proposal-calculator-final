@@ -148,8 +148,10 @@ thead th {
   border-left: 1px solid #000;   /* align left edge */
   border-right: 1px solid #000;  /* align right edge */
 }
+/* Total Users header aligned left */
 thead th.users {
-  text-align: center;
+  text-align: left;
+  padding-left: 12px; /* keep nice spacing */
 }
 
 /* Body cells */
@@ -165,10 +167,11 @@ tbody td.users {
   font-size: 18px;
   text-align: center;
 }
+/* Product Tier values centered */
 tbody td.tier {
   font-weight: bold;
   font-size: 18px;
-  text-align: left;
+  text-align: center;
 }
 
 /* Final Price */
