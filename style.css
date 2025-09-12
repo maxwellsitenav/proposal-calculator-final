@@ -136,17 +136,17 @@ table {
 
 /* Table Header */
 thead th {
-  background: #2c3448;   /* dark navy */
+  background: #2c3448;
   color: #fff;
   font-size: 18px;
   font-weight: bold;
   height: 40px;
-  padding-left: 12px;
-  text-align: left;
+  padding: 0 12px; /* balanced spacing */
+  text-align: center;  /* 👈 centered headers */
   border-top: none;
-  border-bottom: 2px solid #000; /* strong line below header */
-  border-left: 1px solid #000;   /* align left edge */
-  border-right: 1px solid #000;  /* align right edge */
+  border-bottom: 2px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 }
 /* Total Users header aligned left */
 thead th.users {
