@@ -148,11 +148,6 @@ thead th {
   border-left: 1px solid #000;
   border-right: 1px solid #000;
 }
-/* Total Users header aligned left */
-thead th.users {
-  text-align: left;
-  padding-left: 12px; /* keep nice spacing */
-}
 
 /* Body cells */
 tbody td {
