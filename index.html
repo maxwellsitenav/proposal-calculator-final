@@ -37,10 +37,14 @@
           </div>
         </div>
 
-        <!-- Manual Discount -->
+        <!-- Manual Discounts -->
         <label>
-          <span>Manual Discount (%)</span>
-          <input type="number" id="manualDiscount" placeholder="Leave blank for auto" />
+          <span>1 Year Term - Discount (%)</span>
+          <input type="number" id="discount1yr" placeholder="Leave blank for no discount" />
+        </label>
+        <label>
+          <span>3 Year Term - Discount (%)</span>
+          <input type="number" id="discount3yr" placeholder="Leave blank for no discount" />
         </label>
       </div>
 
@@ -64,11 +68,8 @@
     <div id="results" class="results-wrap"></div>
   </div>
 
-  <!-- html2canvas and jsPDF libraries -->
+  <!-- html2canvas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <!-- Your script -->
   <script src="script.js"></script>
 </body>
 </html>
