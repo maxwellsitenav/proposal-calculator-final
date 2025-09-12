@@ -69,7 +69,7 @@ function renderTable() {
               ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
             </div>` : ""}
           <ul class="details-list">
-            <li>Total Discount: ${r.discountPercent.toFixed(2)}% ($${formatNumber(r.discountValue)})</li>
+            <li>Total Savings: $${formatNumber(r.discountValue)}</li>
             <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
           </ul>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
