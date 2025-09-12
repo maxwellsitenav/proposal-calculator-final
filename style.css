@@ -259,3 +259,9 @@ tbody td.tier {
   display: block;
   margin: 30px auto 0;
 }
+
+#discount1yr,
+#discount3yr {
+  width: 220px;   /* wide enough for full placeholder text */
+}
+
