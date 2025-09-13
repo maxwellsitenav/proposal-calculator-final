@@ -46,8 +46,8 @@ function renderTable() {
   let html = `<table><thead><tr>`;
   html += `<th class="users">Total Users</th><th class="tier-header">Product Tier</th>`;
   years.forEach(term => {
-    if (term === 1) html += `<th class="term-header">1 Year Term</th>`;
-    if (term === 3) html += `<th class="term-header">3 Year Term</th>`;
+    if (term === 1) html += `<th>1 Year Term</th>`;
+    if (term === 3) html += `<th>3 Year Term</th>`;
   });
   html += `</tr></thead><tbody>`;
 
@@ -63,25 +63,23 @@ function renderTable() {
       const r = calculatePrice(users, tier, term, discount);
 
       if (showDetails) {
-        html += `<td class="details-cell term-col">
+        html += `<td class="details-cell">
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
-          <div class="details-block">
-            ${discount > 0 ? `
-              <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
-                ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
-              </div>` : ""}
-            <div class="details-text">
+          ${discount > 0 ? `
+            <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
+              ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
+            </div>` : ""}
+          <ul class="details-list">
               ${r.discountPercent > 0 
-                ? `<div>Total Savings: $${formatNumber(r.discountValue)}</div>` 
+                ? `<li>Total Savings: $${formatNumber(r.discountValue)}</li>` 
                 : ""}
-              <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
-              <div>Price / user / month: $${formatNumber(r.perUserPerMonth)}</div>
-            </div>
-          </div>
+            <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
+            <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
+          </ul>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
-        html += `<td class="term-col">
+        html += `<td>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
