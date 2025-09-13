@@ -44,7 +44,7 @@ function renderTable() {
   }
 
   let html = `<table><thead><tr>`;
-  html += `<th class="users">Total Users</th><th>Product Tier</th>`;
+  html += `<th class="users">Total Users</th><th class="tier-header">Product Tier</th>`;
   years.forEach(term => {
     if (term === 1) html += `<th>1 Year Term</th>`;
     if (term === 3) html += `<th>3 Year Term</th>`;
