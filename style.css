@@ -215,7 +215,7 @@ tbody td.term-col {
 /* Details text block */
 .details-text {
   text-align: left;
-  line-height: 1.5;
+  line-height: 1;
   font-size: 16px;
   display: inline-block;
   margin: 10px auto;
