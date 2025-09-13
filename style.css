@@ -28,7 +28,7 @@ body {
   margin-bottom: 40px;
 }
 .title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #000;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@ body {
 /* Inputs */
 .inputs-row {
   display: grid;
-  grid-template-columns: repeat(5, auto); /* 5 columns to fit new fields */
+  grid-template-columns: repeat(5, auto);
   gap: 40px;
   align-items: start;
 }
@@ -59,7 +59,7 @@ body {
   padding: 4px 8px;
 }
 .inputs-row input {
-  width: 120px; /* wider by default for discount placeholders */
+  width: 120px;
   height: 30px;
 }
 .inputs-row select {
@@ -138,11 +138,11 @@ table {
 thead th {
   background: #2c3448;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;   /* larger headers */
   font-weight: bold;
-  height: 40px;
+  height: 44px;
   padding: 0 12px;
-  text-align: center;  /* default center */
+  text-align: center;
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
@@ -157,18 +157,18 @@ thead th.term-header {
 /* Body cells */
 tbody td {
   border: 1px solid #000;
-  height: 60px;
-  font-size: 14px;
-  text-align: center;  /* default center */
-  padding: 0 12px;
+  height: 64px;
+  font-size: 16px;   /* slightly larger text */
+  text-align: center;
+  padding: 8px 12px;
 }
 tbody td.users {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 tbody td.tier {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 tbody td.term-col {
   text-align: center;
@@ -179,39 +179,41 @@ tbody td.term-col {
 /* Final Price */
 .final-price {
   display: block;
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;   /* larger to stand out */
   color: #000;
 }
 
 /* Discount badges */
 .badge {
   display: inline-block;
-  padding: 2px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
-  margin-top: 4px;
+  margin-top: 6px;
   text-align: center;
 }
-.badge-user { background: #d85a27; color: #fff; }  /* orange for 1 Year */
-.badge-term { background: #3399ff; color: #fff; }  /* blue for 3 Year */
+.badge-user { background: #d85a27; color: #fff; }
+.badge-term { background: #3399ff; color: #fff; }
 
 /* Extra padding only for More Details cells */
 .details-cell {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
-/* Details text block (instead of bullets) */
+/* Details text block (no bullets) */
 .details-text {
   display: inline-block;
   text-align: left;
-  margin: 8px auto;
+  margin: 10px auto;
+  font-size: 16px;          /* larger details text */
+  line-height: 1.5;         /* extra spacing between lines */
 }
 .details-text div {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 /* Results wrapper keeps table centered */
@@ -269,14 +271,4 @@ tbody td.term-col {
 #discount1yr,
 #discount3yr {
   width: 220px;
-}
-
-/* Extra spacing for details view */
-.details-cell div:first-child {
-  margin-top: 10px; /* Full Price line */
-}
-.details-cell .final-price {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: block;
 }
