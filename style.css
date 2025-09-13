@@ -282,3 +282,11 @@ tbody td.term-col {
   padding-bottom: 10px;
   display: block;
 }
+
+/* Bulleted list alignment inside term columns */
+.term-col .details-list {
+  text-align: left;        /* keep bullets on the left edge of text */
+  display: inline-block;   /* shrink list to its content width */
+  margin: 8px auto;        /* center the list as a block */
+  padding-left: 20px;      /* keeps bullets indented properly */
+}
