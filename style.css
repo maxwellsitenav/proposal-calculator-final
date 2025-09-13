@@ -149,10 +149,11 @@ thead th {
   border-right: 1px solid #000;
 }
 
-/* Term headers aligned left */
+/* Term headers and cells aligned more center-like */
 thead th.term-header {
-  text-align: left;
-  padding-left: 40px;  /* matches body cell padding */
+  text-align: center;        /* center the header text */
+  padding-left: 0;           /* remove extra left padding */
+  padding-right: 0;          /* remove extra right padding */
 }
 
 /* Body cells */
@@ -172,10 +173,10 @@ tbody td.tier {
   font-size: 18px;
 }
 
-/* Term body cells with inward padding */
 tbody td.term-col {
-  text-align: left;
-  padding-left: 40px;
+  text-align: center;        /* center the whole block */
+  padding-left: 0;           /* reset left padding */
+  padding-right: 0;          /* reset right padding */
 }
 
 /* Final Price */
