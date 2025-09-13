@@ -142,11 +142,16 @@ thead th {
   font-weight: bold;
   height: 40px;
   padding: 0 12px;
-  text-align: center;   /* ✅ center all headers */
+  text-align: center;  /* default center */
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
+}
+thead th.term-header {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Body cells */
@@ -154,8 +159,8 @@ tbody td {
   border: 1px solid #000;
   height: 60px;
   font-size: 14px;
-  text-align: center;   /* ✅ center all cell contents */
-  padding: 8px;
+  text-align: center;  /* default center */
+  padding: 0 12px;
 }
 tbody td.users {
   font-weight: bold;
@@ -164,6 +169,11 @@ tbody td.users {
 tbody td.tier {
   font-weight: bold;
   font-size: 18px;
+}
+tbody td.term-col {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Final Price */
@@ -177,12 +187,13 @@ tbody td.tier {
 
 /* Discount badges */
 .badge {
-  display: inline-block; /* ✅ keeps badge only as wide as text */
+  display: inline-block;
   padding: 2px 6px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: bold;
   margin-top: 4px;
+  text-align: center;
 }
 .badge-user { background: #d85a27; color: #fff; }  /* orange for 1 Year */
 .badge-term { background: #3399ff; color: #fff; }  /* blue for 3 Year */
@@ -191,6 +202,16 @@ tbody td.tier {
 .details-cell {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+/* Details text block (instead of bullets) */
+.details-text {
+  display: inline-block;
+  text-align: left;
+  margin: 8px auto;
+}
+.details-text div {
+  margin-bottom: 4px;
 }
 
 /* Results wrapper keeps table centered */
@@ -221,18 +242,6 @@ tbody td.tier {
   width: 14px;
   height: 14px;
   margin-left: 8px;
-}
-
-/* Bulleted list for more details */
-.details-list {
-  margin: 8px 0;
-  font-size: 14px;
-  list-style-position: inside; /* ✅ bullets inline with text */
-  text-align: center;          /* ✅ centered text and bullets */
-  padding-left: 0;             /* no extra left indent */
-}
-.details-list li {
-  margin-bottom: 4px;
 }
 
 /* Secondary button (Download) */
