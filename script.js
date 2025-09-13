@@ -66,18 +66,18 @@ function renderTable() {
         html += `<td class="details-cell term-col">
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
           <div class="details-block">
-  ${discount > 0 ? `
-    <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
-      ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
-    </div>` : ""}
-  <div class="details-text">
-    ${r.discountPercent > 0 
-      ? `<div>Total Savings: $${formatNumber(r.discountValue)}</div>` 
-      : ""}
-    <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
-    <div>Price / user / month: $${formatNumber(r.perUserPerMonth)}</div>
-  </div>
-</div>
+            ${discount > 0 ? `
+              <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
+                ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
+              </div>` : ""}
+            <div class="details-text">
+              ${r.discountPercent > 0 
+                ? `<div>Total Savings: $${formatNumber(r.discountValue)}</div>` 
+                : ""}
+              <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
+              <div>Price / user / month: $${formatNumber(r.perUserPerMonth)}</div>
+            </div>
+          </div>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
