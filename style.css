@@ -281,7 +281,7 @@ tbody td.tier {
 }
 
 .details-cell .final-price {  /* targets "Final Price:" line */
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 10px;
   display: block;  /* ensure spacing applies properly */
 }
