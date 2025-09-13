@@ -285,3 +285,16 @@ tbody td.tier {
   padding-bottom: 10px;
   display: block;  /* ensure spacing applies properly */
 }
+
+/* Product Tier header left-aligned */
+thead th.tier-header {
+  text-align: left !important;
+  padding-left: 12px;   /* give some breathing room from the border */
+}
+
+/* Product Tier cell text left-aligned */
+tbody td.tier {
+  text-align: left !important;
+  padding-left: 12px;   /* match header padding */
+}
+
