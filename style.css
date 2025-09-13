@@ -141,55 +141,41 @@ thead th {
   font-size: 18px;
   font-weight: bold;
   height: 40px;
-  padding: 0 12px; /* balanced spacing */
-  text-align: left;  /* 👈 centered headers */
+  padding: 0 12px;
+  text-align: center;  /* default center */
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
 }
 
-/* Total Users values aligned left */
-tbody td.users {
-  font-weight: bold;
-  font-size: 18px;
+/* Term headers aligned left */
+thead th.term-header {
   text-align: left;
-  padding-left: 12px;
+  padding-left: 40px;  /* matches body cell padding */
 }
-
-/* Product Tier values aligned left */
-tbody td.tier {
-  font-weight: bold;
-  font-size: 18px;
-  text-align: left;
-  padding-left: 12px;
-}
-
-
-/* Keep 1 Year Term and 3 Year Term headers left aligned */
-thead th:not(.users):not(.tier-header) {
-  text-align: left;
-}
-
 
 /* Body cells */
 tbody td {
-  border: 1px solid #000;   /* black grid lines */
+  border: 1px solid #000;
   height: 60px;
   font-size: 14px;
-  padding-left: 12px;
-  text-align: left;
+  text-align: center;  /* default center */
+  padding: 0 12px;
 }
 tbody td.users {
   font-weight: bold;
   font-size: 18px;
-  text-align: left;
 }
-/* Product Tier values centered */
 tbody td.tier {
   font-weight: bold;
   font-size: 18px;
+}
+
+/* Term body cells with inward padding */
+tbody td.term-col {
   text-align: left;
+  padding-left: 40px;
 }
 
 /* Final Price */
@@ -197,7 +183,7 @@ tbody td.tier {
   display: block;
   margin-top: 6px;
   font-weight: bold;
-  font-size: 16px;   /* larger to stand out */
+  font-size: 16px;
   color: #000;
 }
 
@@ -252,7 +238,7 @@ tbody td.tier {
 /* Bulleted list for more details */
 .details-list {
   margin: 8px 0;
-  padding-left: 20px; /* indent bullets */
+  padding-left: 20px;
   font-size: 14px;
 }
 .details-list li {
@@ -275,25 +261,23 @@ tbody td.tier {
 .btn-secondary:hover {
   background: #5a6268;
 }
-
 #downloadBtn {
   display: block;
   margin: 30px auto 0;
 }
 
+/* Discount fields */
 #discount1yr,
 #discount3yr {
-  width: 220px;   /* wide enough for full placeholder text */
+  width: 220px;
 }
 
 /* Extra spacing for details view */
-.details-cell div:first-child {  /* targets "Full Price:" line */
-  margin-top: 10px;
+.details-cell div:first-child {
+  margin-top: 10px; /* Full Price line */
 }
-
-.details-cell .final-price {  /* targets "Final Price:" line */
+.details-cell .final-price {
   padding-top: 10px;
   padding-bottom: 10px;
-  display: block;  /* ensure spacing applies properly */
+  display: block;
 }
-
