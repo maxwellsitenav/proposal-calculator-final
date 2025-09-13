@@ -149,11 +149,22 @@ thead th {
   border-right: 1px solid #000;
 }
 
-/* Center Total Users and Product Tier headers */
-thead th.users,
-thead th.tier-header {
-  text-align: center;
+/* Total Users values aligned left */
+tbody td.users {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 12px;
 }
+
+/* Product Tier values aligned left */
+tbody td.tier {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 12px;
+}
+
 
 /* Keep 1 Year Term and 3 Year Term headers left aligned */
 thead th:not(.users):not(.tier-header) {
