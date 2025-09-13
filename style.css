@@ -149,6 +149,18 @@ thead th {
   border-right: 1px solid #000;
 }
 
+/* Center Total Users and Product Tier headers */
+thead th.users,
+thead th.tier-header {
+  text-align: center;
+}
+
+/* Keep 1 Year Term and 3 Year Term headers left aligned */
+thead th:not(.users):not(.tier-header) {
+  text-align: left;
+}
+
+
 /* Body cells */
 tbody td {
   border: 1px solid #000;   /* black grid lines */
