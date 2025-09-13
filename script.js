@@ -69,13 +69,13 @@ function renderTable() {
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
               ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
             </div>` : ""}
-          <ul class="details-list">
-              ${r.discountPercent > 0 
-                ? `<li>Total Savings: $${formatNumber(r.discountValue)}</li>` 
-                : ""}
-            <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
-            <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-          </ul>
+          <div class="details-text">
+            ${r.discountPercent > 0 
+              ? `<div>Total Savings: $${formatNumber(r.discountValue)}</div>` 
+              : ""}
+            <div>Price / user / year: $${formatNumber(r.perUserPerYear)}</div>
+            <div>Price / user / month: $${formatNumber(r.perUserPerMonth)}</div>
+          </div>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
