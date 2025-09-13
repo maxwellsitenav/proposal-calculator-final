@@ -28,7 +28,7 @@ body {
   margin-bottom: 40px;
 }
 .title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   color: #000;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@ body {
 /* Inputs */
 .inputs-row {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, auto); /* 5 columns to fit new fields */
   gap: 40px;
   align-items: start;
 }
@@ -59,7 +59,7 @@ body {
   padding: 4px 8px;
 }
 .inputs-row input {
-  width: 120px;
+  width: 120px; /* wider by default for discount placeholders */
   height: 30px;
 }
 .inputs-row select {
@@ -138,93 +138,77 @@ table {
 thead th {
   background: #2c3448;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  height: 44px;
-  padding: 0 12px;
-  text-align: center;
+  height: 40px;
+  padding: 0 12px; /* balanced spacing */
+  text-align: center;  /* 👈 centered headers */
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
 }
-thead th.term-header {
+
+/* Center Total Users and Product Tier headers */
+thead th.users,
+thead th.tier-header {
   text-align: center;
-  padding-left: 0;
-  padding-right: 0;
 }
+
+/* Keep 1 Year Term and 3 Year Term headers left aligned */
+thead th:not(.users):not(.tier-header) {
+  text-align: left;
+}
+
 
 /* Body cells */
 tbody td {
-  border: 1px solid #000;
-  height: 64px;
-  font-size: 16px;
-  text-align: center;
-  padding: 8px 12px;
+  border: 1px solid #000;   /* black grid lines */
+  height: 60px;
+  font-size: 14px;
+  padding-left: 12px;
+  text-align: left;
 }
 tbody td.users {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  text-align: center;
 }
+/* Product Tier values centered */
 tbody td.tier {
   font-weight: bold;
-  font-size: 20px;
-}
-tbody td.term-col {
+  font-size: 18px;
   text-align: center;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /* Final Price */
 .final-price {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;   /* larger to stand out */
   color: #000;
 }
 
 /* Discount badges */
 .badge {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 2px 6px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
-  margin-top: 6px;
-  text-align: center;
+  margin-top: 4px;
 }
-.badge-user { background: #d85a27; color: #fff; }
-.badge-term { background: #3399ff; color: #fff; }
+.badge-user { background: #d85a27; color: #fff; }  /* orange for 1 Year */
+.badge-term { background: #3399ff; color: #fff; }  /* blue for 3 Year */
 
 /* Extra padding only for More Details cells */
 .details-cell {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/* Group badge + details together */
-.details-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* 👈 badge and text block centered */
-  gap: 6px;
-}
-
-/* Details text block */
-.details-text {
-  text-align: center;
-  line-height: 1;
-  font-size: 16px;
-  display: inline-block;
-  margin: 10px auto;
-}
-.details-text div {
-  margin-bottom: 6px;
-}
-
-/* Results wrapper */
+/* Results wrapper keeps table centered */
 .results-wrap {
   display: flex;
   justify-content: center;
@@ -232,7 +216,7 @@ tbody td.term-col {
   margin-top: 20px;
 }
 
-/* Checkbox group */
+/* Checkbox group styling */
 .checkbox-group {
   display: flex;
   flex-direction: column;
@@ -254,6 +238,16 @@ tbody td.term-col {
   margin-left: 8px;
 }
 
+/* Bulleted list for more details */
+.details-list {
+  margin: 8px 0;
+  padding-left: 20px; /* indent bullets */
+  font-size: 14px;
+}
+.details-list li {
+  margin-bottom: 4px;
+}
+
 /* Secondary button (Download) */
 .btn-secondary {
   margin-top: 20px;
@@ -270,13 +264,24 @@ tbody td.term-col {
 .btn-secondary:hover {
   background: #5a6268;
 }
+
 #downloadBtn {
   display: block;
   margin: 30px auto 0;
 }
 
-/* Discount fields */
 #discount1yr,
 #discount3yr {
-  width: 220px;
+  width: 220px;   /* wide enough for full placeholder text */
+}
+
+/* Extra spacing for details view */
+.details-cell div:first-child {  /* targets "Full Price:" line */
+  margin-top: 10px;
+}
+
+.details-cell .final-price {  /* targets "Final Price:" line */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;  /* ensure spacing applies properly */
 }
