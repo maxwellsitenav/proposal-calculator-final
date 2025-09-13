@@ -38,7 +38,7 @@ body {
 /* Inputs */
 .inputs-row {
   display: grid;
-  grid-template-columns: repeat(5, auto); /* 5 columns to fit new fields */
+  grid-template-columns: repeat(5, auto);
   gap: 40px;
   align-items: start;
 }
@@ -59,7 +59,7 @@ body {
   padding: 4px 8px;
 }
 .inputs-row input {
-  width: 120px; /* wider by default for discount placeholders */
+  width: 120px;
   height: 30px;
 }
 .inputs-row select {
@@ -142,18 +142,17 @@ thead th {
   font-weight: bold;
   height: 40px;
   padding: 0 12px;
-  text-align: center;  /* default center */
+  text-align: center;
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
 }
 
-/* Term headers and cells aligned more center-like */
 thead th.term-header {
-  text-align: center;        /* center the header text */
-  padding-left: 0;           /* remove extra left padding */
-  padding-right: 0;          /* remove extra right padding */
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Body cells */
@@ -161,7 +160,7 @@ tbody td {
   border: 1px solid #000;
   height: 60px;
   font-size: 14px;
-  text-align: center;  /* default center */
+  text-align: center;
   padding: 0 12px;
 }
 tbody td.users {
@@ -173,10 +172,11 @@ tbody td.tier {
   font-size: 18px;
 }
 
+/* Term body cells */
 tbody td.term-col {
-  text-align: center;        /* center the whole block */
-  padding-left: 0;           /* reset left padding */
-  padding-right: 0;          /* reset right padding */
+  text-align: left;         /* keep everything left-aligned */
+  padding-left: 40px;       /* move whole block inward */
+  padding-right: 40px;
 }
 
 /* Final Price */
@@ -197,16 +197,16 @@ tbody td.term-col {
   font-weight: bold;
   margin-top: 4px;
 }
-.badge-user { background: #d85a27; color: #fff; }  /* orange for 1 Year */
-.badge-term { background: #3399ff; color: #fff; }  /* blue for 3 Year */
+.badge-user { background: #d85a27; color: #fff; }
+.badge-term { background: #3399ff; color: #fff; }
 
-/* Extra padding only for More Details cells */
+/* Extra padding for More Details view */
 .details-cell {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* Results wrapper keeps table centered */
+/* Results wrapper */
 .results-wrap {
   display: flex;
   justify-content: center;
@@ -214,7 +214,7 @@ tbody td.term-col {
   margin-top: 20px;
 }
 
-/* Checkbox group styling */
+/* Checkbox group */
 .checkbox-group {
   display: flex;
   flex-direction: column;
@@ -236,11 +236,12 @@ tbody td.term-col {
   margin-left: 8px;
 }
 
-/* Bulleted list for more details */
+/* Bulleted list */
 .details-list {
   margin: 8px 0;
   padding-left: 20px;
   font-size: 14px;
+  text-align: left;
 }
 .details-list li {
   margin-bottom: 4px;
@@ -281,12 +282,4 @@ tbody td.term-col {
   padding-top: 10px;
   padding-bottom: 10px;
   display: block;
-}
-
-/* Bulleted list alignment inside term columns */
-.term-col .details-list {
-  text-align: left;        /* keep bullets on the left edge of text */
-  display: inline-block;   /* shrink list to its content width */
-  margin: 8px auto;        /* center the list as a block */
-  padding-left: 20px;      /* keeps bullets indented properly */
 }
