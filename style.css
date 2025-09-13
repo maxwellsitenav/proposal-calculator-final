@@ -141,8 +141,7 @@ thead th {
   font-size: 18px;
   font-weight: bold;
   height: 40px;
-  padding: 0 12px; /* balanced spacing */
-  text-align: center;  /* 👈 centered headers */
+  text-align: left;  /* 👈 centered headers */
   border-top: none;
   border-bottom: 2px solid #000;
   border-left: 1px solid #000;
@@ -183,13 +182,13 @@ tbody td {
 tbody td.users {
   font-weight: bold;
   font-size: 18px;
-  text-align: center;
+  text-align: left;
 }
 /* Product Tier values centered */
 tbody td.tier {
   font-weight: bold;
   font-size: 18px;
-  text-align: center;
+  text-align: left;
 }
 
 /* Final Price */
