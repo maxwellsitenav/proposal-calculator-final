@@ -286,19 +286,17 @@ tbody td.term-col {
   display: block;
 }
 
-/* Make all content inside term columns a vertical block */
-.term-col > * {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+/* Center all child elements in term columns without stretching */
+.term-col {
+  text-align: center;   /* default: center inline content like badges */
 }
 
-/* Bulleted list stays centered as a block, bullets aligned neatly */
+/* Bulleted list stays grouped and aligned under the text */
 .term-col .details-list {
   display: inline-block;   /* shrink to list width */
-  text-align: left;        /* bullets align inside */
-  margin: 8px auto;        /* center the list itself */
-  padding-left: 20px;      /* indent bullets */
+  text-align: left;        /* bullets aligned inside */
+  margin: 8px auto;        /* center the list block */
+  padding-left: 20px;      /* normal bullet indentation */
 }
+
 
