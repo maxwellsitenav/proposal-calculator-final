@@ -138,7 +138,7 @@ table {
 thead th {
   background: #2c3448;
   color: #fff;
-  font-size: 20px;   /* larger headers */
+  font-size: 20px;
   font-weight: bold;
   height: 44px;
   padding: 0 12px;
@@ -158,7 +158,7 @@ thead th.term-header {
 tbody td {
   border: 1px solid #000;
   height: 64px;
-  font-size: 16px;   /* slightly larger text */
+  font-size: 16px;
   text-align: center;
   padding: 8px 12px;
 }
@@ -181,7 +181,7 @@ tbody td.term-col {
   display: block;
   margin-top: 8px;
   font-weight: bold;
-  font-size: 18px;   /* larger to stand out */
+  font-size: 18px;
   color: #000;
 }
 
@@ -204,19 +204,27 @@ tbody td.term-col {
   padding-bottom: 12px;
 }
 
-/* Details text block (no bullets) */
+/* Group badge + details together */
+.details-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 👈 badge and text block centered */
+  gap: 6px;
+}
+
+/* Details text block */
 .details-text {
-  display: inline-block;
   text-align: left;
+  line-height: 1.5;
+  font-size: 16px;
+  display: inline-block;
   margin: 10px auto;
-  font-size: 16px;          /* larger details text */
-  line-height: 1.5;         /* extra spacing between lines */
 }
 .details-text div {
   margin-bottom: 6px;
 }
 
-/* Results wrapper keeps table centered */
+/* Results wrapper */
 .results-wrap {
   display: flex;
   justify-content: center;
@@ -224,7 +232,7 @@ tbody td.term-col {
   margin-top: 20px;
 }
 
-/* Checkbox group styling */
+/* Checkbox group */
 .checkbox-group {
   display: flex;
   flex-direction: column;
