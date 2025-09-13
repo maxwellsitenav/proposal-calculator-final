@@ -46,8 +46,8 @@ function renderTable() {
   let html = `<table><thead><tr>`;
   html += `<th class="users">Total Users</th><th class="tier-header">Product Tier</th>`;
   years.forEach(term => {
-    if (term === 1) html += `<th>1 Year Term</th>`;
-    if (term === 3) html += `<th>3 Year Term</th>`;
+    if (term === 1) html += `<th class="term-header">1 Year Term</th>`;
+    if (term === 3) html += `<th class="term-header">3 Year Term</th>`;
   });
   html += `</tr></thead><tbody>`;
 
@@ -63,7 +63,7 @@ function renderTable() {
       const r = calculatePrice(users, tier, term, discount);
 
       if (showDetails) {
-        html += `<td class="details-cell">
+        html += `<td class="details-cell term-col">
           <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
@@ -79,7 +79,7 @@ function renderTable() {
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
         </td>`;
       } else {
-        html += `<td>
+        html += `<td class="term-col">
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
