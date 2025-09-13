@@ -275,3 +275,14 @@ tbody td.tier {
   width: 220px;   /* wide enough for full placeholder text */
 }
 
+/* Extra spacing for details view */
+.details-cell div:first-child {  /* targets "Full Price:" line */
+  margin-top: 10px;
+}
+
+.details-cell .final-price {  /* targets "Final Price:" line */
+  padding-top: 5px;
+  padding-bottom: 10px;
+  display: block;  /* ensure spacing applies properly */
+}
+
