@@ -285,3 +285,20 @@ tbody td.term-col {
   padding-bottom: 10px;
   display: block;
 }
+
+/* Make all content inside term columns a vertical block */
+.term-col > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Bulleted list stays centered as a block, bullets aligned neatly */
+.term-col .details-list {
+  display: inline-block;   /* shrink to list width */
+  text-align: left;        /* bullets align inside */
+  margin: 8px auto;        /* center the list itself */
+  padding-left: 20px;      /* indent bullets */
+}
+
