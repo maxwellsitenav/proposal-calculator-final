@@ -1,7 +1,7 @@
 const prices = {
   "Basic": 199.99,
-  "Dispatch": 399,
-  "Route Builder": 699
+  "Dispatch": 399.99,
+  "Route Builder": 699.99
 };
 
 function formatNumber(num) {
