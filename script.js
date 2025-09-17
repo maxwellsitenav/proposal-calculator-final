@@ -1,5 +1,5 @@
 const prices = {
-  "Basic": 199,
+  "Basic": 199.99,
   "Dispatch": 399,
   "Route Builder": 699
 };
