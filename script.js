@@ -64,7 +64,9 @@ function renderTable() {
 
       if (showDetails) {
         html += `<td class="details-cell">
-          <div><strong>Full Price:</strong> $${formatNumber(r.basePrice)}</div>
+         ${discount > 0 ? `
+          <div><strong>List Price:</strong> $${formatNumber(r.basePrice)}</div>
+          ` : ""}
           ${discount > 0 ? `
             <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
               ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
