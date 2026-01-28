@@ -61,30 +61,39 @@ function renderTable() {
     years.forEach(term => {
       const discount = term === 1 ? discount1yr : discount3yr;
       const r = calculatePrice(users, tier, term, discount);
+if (showDetails) {
 
-      if (showDetails) {
-   html += `<td class="details-cell">
+  let discountHTML = "";
 
-    ${discount > 0 ? `
+  if (discount > 0) {
+    discountHTML = `
       <div><strong>List Price:</strong> $${formatNumber(r.basePrice)}</div>
       <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
         ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
       </div>
-    ` : ""}
+    `;
+  }
 
-    <ul class="details-list">
-      <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-    </ul>
+  html += `
+    <td class="details-cell">
 
-    <div class="total-price-wrap">
-      <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
-      <div class="price-subtext">
-        + any applicable sales tax and credit card fees
+      ${discountHTML}
+
+      <ul class="details-list">
+        <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
+      </ul>
+
+      <div class="total-price-wrap">
+        <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
+        <div class="price-subtext">
+          + any applicable sales tax and credit card fees
+        </div>
       </div>
-    </div>
 
-  </td>`;
-      } else {
+    </td>
+  `;
+}
+   else {
         html += `<td>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
           ${discount > 0 ? `
