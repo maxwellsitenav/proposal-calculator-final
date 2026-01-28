@@ -63,37 +63,28 @@ function renderTable() {
       const r = calculatePrice(users, tier, term, discount);
 
       if (showDetails) {
-        html += `<td class="details-cell">
-         ${discount > 0 ? `
-          <div><strong>List Price:</strong> $${formatNumber(r.basePrice)}</div>
-          ` : ""}
-          ${discount > 0 ? `
-            <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
-              ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
-            </div>` : ""}
-          ${discount > 0 
-          ? `
-           <ul class="details-list">
-  <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-</ul>
+   html += `<td class="details-cell">
 
-<div class="total-price-wrap">
-  <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
-  <div class="price-subtext">+ any applicable sales tax and credit card fees</div>
-</div>
-          `
-          : `
-            <div class="total-price-wrap">
-            <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
-            <div class="price-subtext">+ any applicable sales tax</div>
-            </div>
-            <ul class="details-list">
-              <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
-              <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-            </ul>
-          `
-        }
-        </td>`;
+    ${discount > 0 ? `
+      <div><strong>List Price:</strong> $${formatNumber(r.basePrice)}</div>
+      <div class="badge ${term === 1 ? "badge-user" : "badge-term"}">
+        ${term === 1 ? "Discount" : "Multi-Year Discount"} ${discount.toFixed(2)}%
+      </div>
+    ` : ""}
+
+    <ul class="details-list">
+      <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
+    </ul>
+
+    <div class="total-price-wrap">
+      <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
+      <div class="price-subtext">
+        + any applicable sales tax and credit card fees
+      </div>
+    </div>
+
+  </td>`;
+}
       } else {
         html += `<td>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
