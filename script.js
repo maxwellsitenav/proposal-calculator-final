@@ -79,9 +79,10 @@ if (showDetails) {
 
       ${discountHTML}
 
-      <ul class="details-list">
-        <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-      </ul>
+   <ul class="details-list">
+  <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
+  <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
+</ul>
 
       <div class="total-price-wrap">
         <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
