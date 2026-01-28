@@ -73,19 +73,19 @@ function renderTable() {
             </div>` : ""}
           ${discount > 0 
           ? `
-            <ul class="details-list">
-              <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
-              <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
-            </ul>
-            <div class="total-price-wrap">
-            <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
-            <div class="price-subtext">+ any applicable sales tax</div>
-            </div>
+           <ul class="details-list">
+  <li>Price / user / month: $${formatNumber(r.perUserPerMonth)}</li>
+</ul>
+
+<div class="total-price-wrap">
+  <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
+  <div class="price-subtext">+ any applicable sales tax and credit card fees</div>
+</div>
           `
           : `
             <div class="total-price-wrap">
             <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
-            <div class="price-subtext">+ any applicable sales tax and credit card fees</div>
+            <div class="price-subtext">+ any applicable sales tax</div>
             </div>
             <ul class="details-list">
               <li>Price / user / year: $${formatNumber(r.perUserPerYear)}</li>
