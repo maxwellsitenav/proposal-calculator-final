@@ -86,7 +86,7 @@ if (showDetails) {
       <div class="total-price-wrap">
         <span class="final-price">Total Price: $${formatNumber(r.finalPrice)}</span>
         <div class="price-subtext">
-          + any applicable sales tax and credit card fees
+          + any applicable sales tax
         </div>
       </div>
 
