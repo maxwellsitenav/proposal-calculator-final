@@ -84,7 +84,6 @@ function renderTable() {
     </div>
 
   </td>`;
-}
       } else {
         html += `<td>
           <span class="final-price">Final Price: $${formatNumber(r.finalPrice)}</span>
