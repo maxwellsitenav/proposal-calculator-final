@@ -9,8 +9,7 @@ function formatNumber(num) {
 }
 
 function calculatePrice(users, tier, years, discount) {
-  const priceVersion = document.getElementById("priceVersion").value;
-  const basePrice = priceSets[priceVersion][tier] * users * years;
+   const basePrice = prices[tier] * users * years;
   let discountPercent = discount || 0;
   const discountValue = (discountPercent / 100) * basePrice;
   const finalPrice = basePrice - discountValue;
