@@ -77,6 +77,10 @@ function renderTable() {
   const showDetails =
     document.getElementById("detailsToggle").checked;
 
+  document
+  .getElementById("priceVersion")
+  .addEventListener("change", renderTable);
+
   /*
    * Uses New Pricing by default if the pricing selector
    * has not yet been added to index.html.
