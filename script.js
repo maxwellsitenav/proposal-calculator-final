@@ -1,7 +1,15 @@
-const prices = {
-  "Basic": 199.99,
-  "Dispatch": 399.99,
-  "Route Builder": 699.99
+const priceSets = {
+  new: {
+    "Basic": 199.99,
+    "Dispatch": 399.99,
+    "Route Builder": 699.99
+  },
+
+  old: {
+    "Basic": 149.99,
+    "Dispatch": 249.99,
+    "Route Builder": 449.99
+  }
 };
 
 function formatNumber(num) {
