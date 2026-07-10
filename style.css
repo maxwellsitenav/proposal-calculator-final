@@ -38,7 +38,7 @@ body {
 /* Inputs */
 .inputs-row {
   display: grid;
-  grid-template-columns: repeat(5, auto); /* 5 columns to fit new fields */
+  grid-template-columns: repeat(6, auto); /* 6 columns to fit new fields */
   gap: 40px;
   align-items: start;
 }
